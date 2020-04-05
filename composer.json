@@ -1,5 +1,5 @@
 {
-    "name": "t-rack-in/database",
+    "name": "t-rack-in/cli-database",
     "description": "The Illuminate Database package.",
     "license": "MIT",
     "homepage": "https://laravel.com",
