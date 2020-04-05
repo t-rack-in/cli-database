@@ -535,6 +535,8 @@ class Builder
      */
     public function getModels($columns = ['*'])
     {
+        if ($this->query->getConnection()->getName() == 'mongodb') return $this->query->get($columns);
+        
         return $this->model->hydrate(
             $this->query->get($columns)->all()
         )->all();
