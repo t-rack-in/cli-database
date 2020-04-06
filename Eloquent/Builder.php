@@ -532,11 +532,9 @@ class Builder
      * @return \Illuminate\Database\Eloquent\Model[]|static[]
      */
     public function getModels($columns = ['*'])
-    {
-        if ($this->query->getConnection()->getName() == 'mongodb') return $this->query->get($columns);
-        
+    {        
         return $this->model->hydrate(
-            $this->query->get($columns)->all()
+            is_array($this->query->get($columns)) ? $this->query->get($columns) : $this->query->get($columns)->all()
         )->all();
     }
 
